@@ -1,9 +1,10 @@
 import { Box, BoxProps, Typography } from "@mui/material";
 import { SideNavbarItemProps } from "../SideNavbarItem/SideNavbarItem";
 import clsx from "clsx";
+import { ReactNode } from "react";
 
 export interface SideNavbarProps extends BoxProps {
-    items: SideNavbarItemProps[];
+    items: ReactNode[];
 }
 
 const SideNavbar = (props: SideNavbarProps) => {
@@ -13,11 +14,8 @@ const SideNavbar = (props: SideNavbarProps) => {
     return (
         <Box className={classes} {...other}>
             <Typography>Movies</Typography>
-            {items.map((item: SideNavbarItemProps) => (
-                <Box className={"flex"}>
-                    <div>{item.icon}</div>
-                    <div>{item.name}</div>
-                </Box>
+            {items.map((item) => (
+                <Box>{item}</Box>
             ))}
         </Box>
     );
