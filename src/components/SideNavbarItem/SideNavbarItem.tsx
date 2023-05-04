@@ -1,10 +1,12 @@
+
 import { Box, BoxProps, Typography } from "@mui/material";
 import clsx from "clsx";
+import { ReactNode } from "react";
 
 export interface SideNavbarItemProps extends BoxProps {
     name: string;
+    icon: ReactNode;
     link: string;
-    icon: string;
 }
 
 const SideNavbarItem = (props: SideNavbarItemProps) => {

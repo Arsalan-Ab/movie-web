@@ -1,7 +1,7 @@
 import { Box, BoxProps, Typography } from "@mui/material";
 import { SideNavbarItemProps } from "../SideNavbarItem/SideNavbarItem";
 import clsx from "clsx";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export interface SideNavbarProps extends BoxProps {
     items: ReactNode[];
