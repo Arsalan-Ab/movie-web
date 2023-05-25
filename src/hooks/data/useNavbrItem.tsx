@@ -27,15 +27,13 @@ const useNavbarItem = () => {
 
     const navItem = items.map((item, index) => {
         return (
-            <SideNavbarItem
+            <SideNavbarItem className="mb-3"
                 name={item.name}
                 icon={item.icon}
                 link={item.link}
             />
         );
     });
-
-    
 
     return navItem;
 };

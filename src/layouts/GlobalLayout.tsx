@@ -10,7 +10,7 @@ interface GlobalLayoutProps {
 const GlobalLayout = ({ children }: GlobalLayoutProps) => {
     const navigationItem = useNavbarItem();
     return (
-        <AppShell navigation={<SideNavbar items={navigationItem} />}>
+        <AppShell navigation={<SideNavbar className="ml-4 px-3" items={navigationItem} />}>
             {children}
         </AppShell>
     );
