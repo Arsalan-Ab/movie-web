@@ -27,7 +27,8 @@ const useNavbarItem = () => {
 
     const navItem = items.map((item, index) => {
         return (
-            <SideNavbarItem className="mb-3"
+            <SideNavbarItem
+                className="mb-3"
                 name={item.name}
                 icon={item.icon}
                 link={item.link}
