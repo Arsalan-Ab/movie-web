@@ -1,6 +1,9 @@
 import { Box, BoxProps } from "@mui/material";
+import "./AppShell.module.scss";
 import clsx from "clsx";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import styles from "./AppShell.module.scss";
+import Image from "next/image";
 
 export interface AppShellProps extends BoxProps {
     footer?: ReactNode;
@@ -11,12 +14,22 @@ export interface AppShellProps extends BoxProps {
 const AppShell = (props: AppShellProps) => {
     const { className, children, footer, header, navigation, ...other } = props;
 
-    const classes: string = clsx("movie-app-shell", className);
+    const classes: string = clsx(styles.movieAppShell, className);
 
     return (
-        <Box className={classes}>
-            <Box className="h-full w-1/5">{navigation}</Box>
-            {children}
+        <Box className={classes} {...other}>
+            <Image
+                style={{ zIndex: -1, objectFit: "cover" }}
+                fill
+                quality={90}
+                sizes="100vw"
+                alt="..."
+                src={"/avatar_background.jpg"}
+            />
+            <Box className="flex">
+                <Box className="w-1/6 border-e-2">{navigation}</Box>
+                <Box className="px-7 py-5">{children}</Box>
+            </Box>
         </Box>
     );
 };
