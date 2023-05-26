@@ -28,7 +28,7 @@ const AppShell = (props: AppShellProps) => {
             /> */}
             <Box className="flex">
                 <Box className="w-1/6 border-e-2">{navigation}</Box>
-                <Box className="px-7 py-5 flex-grow">{children}</Box>
+                <Box className="px-7 py-5 flex flex-col w-full">{children}</Box>
             </Box>
         </Box>
     );

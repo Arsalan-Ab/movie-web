@@ -8,28 +8,51 @@ import "swiper/css/navigation";
 import "./SlideSwiper.module.scss";
 
 // import required modules
-import { Navigation } from "swiper";
+import { FreeMode, Navigation } from "swiper";
+import MovieCard from "../MovieCard/MovieCard";
+import { Box } from "@mui/material";
 
 export default function SlideSwiper() {
+    const CustomNextButton = () => {
+        return <button className="swiper-button-next"></button>;
+    };
+
+    const CustomPrevButton = () => {
+        return <button className="swiper-button-prev"></button>;
+    };
     return (
-        <>
+        <Box position={"relative"}>
             <Swiper
-                width={500}
-                height={500}
-                navigation={true}
-                modules={[Navigation]}
+                freeMode
+                slidesPerView={3}
+                spaceBetween={20}
+                modules={[Navigation, FreeMode]}
+                navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                }}
                 className="mySwiper"
             >
-                <SwiperSlide style={{ width: "100" }}>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
+                <SwiperSlide>
+                    <MovieCard></MovieCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <MovieCard></MovieCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <MovieCard></MovieCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <MovieCard></MovieCard>
+                </SwiperSlide>
                 <SwiperSlide>Slide 5</SwiperSlide>
                 <SwiperSlide>Slide 6</SwiperSlide>
                 <SwiperSlide>Slide 7</SwiperSlide>
                 <SwiperSlide>Slide 8</SwiperSlide>
                 <SwiperSlide>Slide 9</SwiperSlide>
             </Swiper>
-        </>
+            <CustomNextButton />
+            <CustomPrevButton />
+        </Box>
     );
 }

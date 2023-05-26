@@ -12,7 +12,7 @@ const MovieCard = () => {
         <Card
             elevation={6}
             className="h-52 rounded-lg"
-            sx={{ maxWidth: "170px", position: "relative" }}
+            sx={{ maxWidth: "170px", position: "relative", cursor: "pointer" }}
         >
             <CardMedia
                 className="h-full"
