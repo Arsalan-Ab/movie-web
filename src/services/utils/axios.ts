@@ -14,7 +14,7 @@ const getConfig: Params = {
         Authorization:
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NmU4OGQ4N2U4ZGU1M2U1NDFhNTE5NzllNTJkM2UwNCIsInN1YiI6IjYxZjdlZWI0NWYyZGIxMDA0NDBhNmUwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.C6L-HO8arLUQlJ5FdoqNAWnLVXqQZZgK2apnv5kQbRU",
     },
-    method: "GET",
+    method: "get",
 };
 
 export async function getApi(url: string) {
