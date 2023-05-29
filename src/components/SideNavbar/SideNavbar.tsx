@@ -2,7 +2,7 @@ import { Box, BoxProps, Typography } from "@mui/material";
 import { SideNavbarItemProps } from "../SideNavbarItem/SideNavbarItem";
 import clsx from "clsx";
 import { ReactElement, ReactNode } from "react";
-import styles from "./SideNavbar.module.scss"
+import styles from "./SideNavbar.module.scss";
 
 export interface SideNavbarProps extends BoxProps {
     items: ReactNode[];
@@ -15,8 +15,8 @@ const SideNavbar = (props: SideNavbarProps) => {
     return (
         <Box className={classes} {...other}>
             <Typography className="p-1 mb-3 mx-6">Movies</Typography>
-            {items.map((item) => (
-                <Box>{item}</Box>
+            {items.map((item, index) => (
+                <Box key={index}>{item}</Box>
             ))}
         </Box>
     );

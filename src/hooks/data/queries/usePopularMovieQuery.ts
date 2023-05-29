@@ -6,12 +6,14 @@ export interface PopularMovieQueryParams extends QueryParams {
 }
 
 const usePopularMovieQuery = async (query?: PopularMovieQueryParams) => {
-    let queries = "";
+    let queries = null;
     if (query) {
         queries = queryStringGenerator(query);
     }
     console.log(queries);
-    return queries;
+    return await console.log(
+        getApi(`movie/popular${queries != null ? queries : ""}`)
+    );
 };
 
 export default usePopularMovieQuery;
