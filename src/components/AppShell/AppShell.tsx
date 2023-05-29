@@ -18,17 +18,19 @@ const AppShell = (props: AppShellProps) => {
 
     return (
         <Box className={classes} {...other}>
-            <Image
+            {/* <Image
                 style={{ zIndex: -1, objectFit: "cover" }}
                 fill
                 quality={90}
                 sizes="100vw"
                 alt="..."
                 src={"/avatar_background.jpg"}
-            />
+            /> */}
             <Box className="flex">
-                <Box className="w-1/6 border-e-2">{navigation}</Box>
-                <Box className="px-7 py-5">{children}</Box>
+                <Box sx={{ minWidth: "160px" }} className="w-1/6 border-e-2">
+                    {navigation}
+                </Box>
+                <Box className="px-7 py-5 flex flex-col grow">{children}</Box>
             </Box>
         </Box>
     );
