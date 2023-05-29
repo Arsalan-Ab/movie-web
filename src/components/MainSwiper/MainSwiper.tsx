@@ -1,34 +1,22 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "./SlideSwiper.module.scss";
+import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Navigation } from "swiper";
+import { FreeMode, Navigation, Pagination } from "swiper";
 import MovieCard from "../MovieCard/MovieCard";
 import { Box } from "@mui/material";
 
-export default function SlideSwiper() {
-    const CustomNextButton = () => {
-        return <button className="swiper-button-next"></button>;
-    };
-
-    const CustomPrevButton = () => {
-        return <button className="swiper-button-prev"></button>;
-    };
+const MainSwiper = () => {
     return (
-        <Box>
+        <Box sx={{ maxWidth: "1000px", height: "80%" }}>
             <Swiper
-                freeMode
-                slidesPerView={4}
-                spaceBetween={40}
-                modules={[Navigation, FreeMode]}
-                navigation={{
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
+                modules={[Navigation, Pagination]}
+                pagination={{
+                    clickable: true,
                 }}
                 className="mySwiper"
             >
@@ -50,8 +38,8 @@ export default function SlideSwiper() {
                 <SwiperSlide>Slide 8</SwiperSlide>
                 <SwiperSlide>Slide 9</SwiperSlide>
             </Swiper>
-            <CustomNextButton />
-            <CustomPrevButton />
         </Box>
     );
-}
+};
+
+export default MainSwiper;

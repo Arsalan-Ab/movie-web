@@ -27,8 +27,10 @@ const AppShell = (props: AppShellProps) => {
                 src={"/avatar_background.jpg"}
             /> */}
             <Box className="flex">
-                <Box className="w-1/6 border-e-2">{navigation}</Box>
-                <Box className="px-7 py-5 flex flex-col w-full">{children}</Box>
+                <Box sx={{ minWidth: "160px" }} className="w-1/6 border-e-2">
+                    {navigation}
+                </Box>
+                <Box className="px-7 py-5 flex flex-col grow">{children}</Box>
             </Box>
         </Box>
     );
