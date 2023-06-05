@@ -1,5 +1,5 @@
 import axios from "axios";
-import { MAIN_URL } from "@/constant/constants";
+import { MAIN_URL, POSTER_URL } from "@/constant/constants";
 
 interface Params {
     method: string;
@@ -9,7 +9,7 @@ interface Params {
 
 const getConfig: Params = {
     method: "get",
-    baseURL: MAIN_URL,
+    baseURL: MAIN_URL || POSTER_URL,
     headers: {
         accept: "application/json",
         Authorization:
@@ -17,24 +17,19 @@ const getConfig: Params = {
     },
 };
 
-export async function getApi(url: string) {
+export async function getApi(url: string, poster?: string) {
     return await axios({
         ...getConfig,
         url: `/${url}`,
+        baseURL: poster ? POSTER_URL : MAIN_URL,
     })
         .then((response) => {
             console.log(response.data);
-            return {
-                status: response.status,
-                data: response.data,
-            };
+            return response.data;
         })
         .catch((error) => {
             console.log(error);
-            return {
-                status: error.status,
-                data: error.response,
-            };
+            return error.response;
         });
 }
 
