@@ -38,7 +38,7 @@ export default function SlideSwiper({ slides }: SlideSwiperProps) {
                     768: {
                         // width: 768,
                         // spaceBetween: 30,
-                        slidesPerView: 4,
+                        slidesPerView: 5,
                     },
                 }}
                 navigation

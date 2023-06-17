@@ -11,17 +11,20 @@ import usePopularMoviesListQuery from "@/hooks/queries/usePopularMoviesListQuery
 import { get } from "http";
 import Image from "next/image";
 import usePopularMovieSlider from "@/hooks/data/usePopularMovieSlider";
+import useUpcomingMovieSlider from "@/hooks/data/useUpcomigMovieSlider";
 
 const HomePage = () => {
-    const { data } = usePopularMoviesListQuery();
+    // const { data } = usePopularMoviesListQuery();
     // const { data } = useMoviePoster("eqm5EAyC9hJCN5qutuW4Ka1xYbU.jpg");
-    const slides = usePopularMovieSlider();
-    console.log(data);
+    const popularMovies = usePopularMovieSlider();
+    const upcomingMovies = useUpcomingMovieSlider();
+
+    // console.log(data);
     return (
         <>
             <Box>
                 <Typography className="mb-2">New Movies</Typography>
-                <MainSwiper />
+                <MainSwiper slides={upcomingMovies} />
                 {/* <img src={data} /> */}
                 {/* <Image
                     src={
@@ -38,8 +41,8 @@ const HomePage = () => {
                 position={"relative"}
                 // sx={{ maxWidth: "1100px" }}
             >
-                <Typography className="mb-2">Categories</Typography>
-                <SlideSwiper slides={slides} />
+                <Typography className="mb-2">Popular Movies</Typography>
+                <SlideSwiper slides={popularMovies} />
             </Box>
         </>
 

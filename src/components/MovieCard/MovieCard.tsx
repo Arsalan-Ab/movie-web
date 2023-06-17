@@ -16,7 +16,6 @@ const MovieCard = ({ title, src }: MovieCardProps) => {
     return (
         <Box>
             <Card
-                elevation={6}
                 className=" rounded-lg"
                 sx={{
                     position: "relative",

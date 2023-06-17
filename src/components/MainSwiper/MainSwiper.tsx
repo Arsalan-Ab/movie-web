@@ -9,8 +9,13 @@ import "swiper/css/pagination";
 import { FreeMode, Navigation, Pagination } from "swiper";
 import MovieCard from "../MovieCard/MovieCard";
 import { Box } from "@mui/material";
+import { ReactNode } from "react";
 
-const MainSwiper = () => {
+interface MainSwiperProps {
+    slides: ReactNode[];
+}
+
+const MainSwiper = ({ slides }: MainSwiperProps) => {
     return (
         <Box>
             <Swiper
@@ -22,23 +27,9 @@ const MainSwiper = () => {
                 }}
                 className="mySwiper"
             >
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                {slides.map((slide) => (
+                    <SwiperSlide>{slide}</SwiperSlide>
+                ))}
             </Swiper>
         </Box>
     );
