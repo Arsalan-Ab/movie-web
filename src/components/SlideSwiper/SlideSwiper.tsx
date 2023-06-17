@@ -10,8 +10,13 @@ import "./SlideSwiper.module.scss";
 import { FreeMode, Navigation } from "swiper";
 import MovieCard from "../MovieCard/MovieCard";
 import { Box } from "@mui/material";
+import { ReactNode } from "react";
 
-export default function SlideSwiper() {
+interface SlideSwiperProps {
+    slides: ReactNode[];
+}
+
+export default function SlideSwiper({ slides }: SlideSwiperProps) {
     const CustomNextButton = () => {
         return <button className="swiper-button-next"></button>;
     };
@@ -22,36 +27,34 @@ export default function SlideSwiper() {
     return (
         <Box>
             <Swiper
-                freeMode
-                slidesPerView={4}
-                spaceBetween={40}
-                modules={[Navigation, FreeMode]}
-                navigation={{
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
+                breakpoints={{
+                    // when window width is >= 640px
+                    640: {
+                        // width: 640,
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        // width: 768,
+                        // spaceBetween: 30,
+                        slidesPerView: 4,
+                    },
                 }}
-                className="mySwiper"
+                navigation
+                modules={[Navigation]}
+                // navigation={{
+                //     nextEl: ".swiper-button-next",
+                //     prevEl: ".swiper-button-prev",
+                // }}
+                height={100}
             >
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <MovieCard></MovieCard>
-                </SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                {slides.map((slide) => (
+                    <SwiperSlide>{slide}</SwiperSlide>
+                ))}
             </Swiper>
-            <CustomNextButton />
-            <CustomPrevButton />
+            {/* <CustomNextButton />
+            <CustomPrevButton /> */}
         </Box>
     );
 }

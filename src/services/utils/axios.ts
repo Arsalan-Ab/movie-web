@@ -22,6 +22,7 @@ export async function getApi(url: string, poster?: string) {
         ...getConfig,
         url: `/${url}`,
         baseURL: poster ? POSTER_URL : MAIN_URL,
+        headers: poster ? {} : getConfig.headers,
     })
         .then((response) => {
             console.log(response.data);

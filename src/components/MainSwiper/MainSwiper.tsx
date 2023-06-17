@@ -12,8 +12,10 @@ import { Box } from "@mui/material";
 
 const MainSwiper = () => {
     return (
-        <Box sx={{ maxWidth: "1000px", height: "80%" }}>
+        <Box>
             <Swiper
+                height={500}
+                slidesPerView="auto"
                 modules={[Navigation, Pagination]}
                 pagination={{
                     clickable: true,

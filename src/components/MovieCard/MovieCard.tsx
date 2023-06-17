@@ -7,22 +7,32 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 
-const MovieCard = () => {
+export interface MovieCardProps {
+    title: string;
+    src: string;
+}
+
+const MovieCard = ({ title, src }: MovieCardProps) => {
     return (
-        <Card
-            elevation={6}
-            className="h-52 rounded-lg"
-            sx={{ position: "relative", cursor: "pointer" }}
-        >
-            <CardMedia
-                className="h-full"
-                component="img"
-                image="/avatar_background.jpg"
-            />
-            <Box className="absolute bottom-4 text-center w-full">
-                <Typography className="text-white">sdads</Typography>
-            </Box>
-        </Card>
+        <Box>
+            <Card
+                elevation={6}
+                className=" rounded-lg"
+                sx={{
+                    position: "relative",
+                    cursor: "pointer",
+                    width: "200px",
+                }}
+            >
+                <CardMedia
+                    component="img"
+                    image={`https://image.tmdb.org/t/p/w300/${src}`}
+                />
+                <Box className="absolute bottom-4 text-center w-full">
+                    <Typography className="text-white">{title}</Typography>
+                </Box>
+            </Card>
+        </Box>
     );
 };
 
