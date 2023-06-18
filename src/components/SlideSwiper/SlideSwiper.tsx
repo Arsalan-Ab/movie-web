@@ -27,7 +27,6 @@ export default function SlideSwiper({ slides }: SlideSwiperProps) {
     return (
         <Box>
             <Swiper
-                style={{}}
                 breakpoints={{
                     // when window width is >= 640px
                     640: {

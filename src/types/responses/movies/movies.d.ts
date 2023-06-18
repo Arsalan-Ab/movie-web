@@ -1,11 +1,11 @@
 interface MoviesServerResponse {
     page: number;
-    results: Result[];
+    results: MovieResult[];
     total_pages: number;
     total_results: number;
 }
 
-interface Result {
+interface MovieResult {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];

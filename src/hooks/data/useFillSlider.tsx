@@ -4,7 +4,7 @@ import { SwiperSlide } from "swiper/react";
 
 interface FillSliderProps {
     large: boolean;
-    slides: Result[];
+    slides: MovieResult[];
 }
 
 const useFillSlider = ({ slides, large }: FillSliderProps) => {
