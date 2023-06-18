@@ -1,13 +1,23 @@
 import { ReactNode } from "react";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface BackgroundMovieState {
-    movies: MovieResult[];
+    movies: ReactNode[];
     activeBackground: number;
 }
 
-export const backgroundMovieSlice = createSlice({
+const backgroundMovieSlice = createSlice({
     name: "movie",
     initialState: { movies: [], activeBackground: 0 } as BackgroundMovieState,
-    reducers: {},
+    reducers: {
+        addMovie(state, action: PayloadAction<ReactNode[]>) {
+            state.movies = action.payload;
+        },
+        getActivebackground(state, action: PayloadAction<number>) {
+            state.activeBackground = action.payload;
+        },
+    },
 });
+
+export const { addMovie, getActivebackground } = backgroundMovieSlice.actions;
+export default backgroundMovieSlice.reducer;
