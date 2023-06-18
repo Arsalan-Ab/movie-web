@@ -22,8 +22,8 @@ const HomePage = () => {
     // console.log(data);
     return (
         <>
-            <Box>
-                <Typography className="mb-2">New Movies</Typography>
+            <Box className="mb-5">
+                <Typography className="mb-2">Upcoming Movies</Typography>
                 <MainSwiper slides={upcomingMovies} />
                 {/* <img src={data} /> */}
                 {/* <Image

@@ -27,6 +27,7 @@ export default function SlideSwiper({ slides }: SlideSwiperProps) {
     return (
         <Box>
             <Swiper
+                style={{}}
                 breakpoints={{
                     // when window width is >= 640px
                     640: {
@@ -37,7 +38,17 @@ export default function SlideSwiper({ slides }: SlideSwiperProps) {
                     // when window width is >= 768px
                     768: {
                         // width: 768,
-                        // spaceBetween: 30,
+                        spaceBetween: 20,
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        // width: 768,
+                        spaceBetween: 30,
+                        slidesPerView: 4,
+                    },
+                    1280: {
+                        // width: 768,
+                        spaceBetween: 30,
                         slidesPerView: 5,
                     },
                 }}

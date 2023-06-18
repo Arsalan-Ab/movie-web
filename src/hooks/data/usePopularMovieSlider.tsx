@@ -7,7 +7,7 @@ const usePopularMovieSlider = () => {
     const { data } = usePopularMoviesListQuery();
     let slides: ReactNode[] = [];
     if (data) {
-        slides = useFillSlider(data.results);
+        slides = useFillSlider({ slides: data.results, large: false });
     }
 
     return slides;

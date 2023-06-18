@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
-import useUpcomingMovieListQuery from "../queries/useUpcomingMovieListquery";
 import useFillSlider from "./useFillSlider";
+import useUpcomingMovieListQuery from "../queries/useUpcomingMovieListQuery";
 
 const useUpcomingMovieSlider = () => {
     const { data } = useUpcomingMovieListQuery();
     console.log(data);
     let slides: ReactNode[] = [];
     if (data) {
-        slides = useFillSlider(data.results);
+        slides = useFillSlider({ slides: data.results, large: true });
     }
 
     return slides;

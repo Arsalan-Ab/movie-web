@@ -19,7 +19,6 @@ const MainSwiper = ({ slides }: MainSwiperProps) => {
     return (
         <Box>
             <Swiper
-                height={500}
                 slidesPerView="auto"
                 modules={[Navigation, Pagination]}
                 pagination={{
