@@ -6,23 +6,25 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-import { AspectRatio } from "@mui/icons-material";
+import { AspectRatio, Height } from "@mui/icons-material";
 
 export interface MovieCardProps {
     title: string;
     src: string;
-    large: boolean;
+    large?: boolean;
+    background?: boolean;
 }
 
-const MovieCard = ({ title, src, large }: MovieCardProps) => {
+const MovieCard = ({ title, src, large, background }: MovieCardProps) => {
     return (
         <Box>
             <Card
-                className=" rounded-lg mx-auto"
+                className=" rounded-lg mx-auto w-full"
                 sx={{
                     position: "relative",
                     cursor: "pointer",
-                    width: large ? "90%" : "inherit",
+                    width: large ? "90%" : "100%",
+                    height: background ? "100%" : "330px",
                 }}
             >
                 <CardMedia
@@ -31,7 +33,7 @@ const MovieCard = ({ title, src, large }: MovieCardProps) => {
                     image={`https://image.tmdb.org/t/p/w300/${src}`}
                     sx={{
                         objectFit: "cover",
-                        height: large ? "320px" : "300px",
+                        height: "100%",
                     }}
                 />
 

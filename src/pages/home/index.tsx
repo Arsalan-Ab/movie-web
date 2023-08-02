@@ -12,6 +12,9 @@ import { get } from "http";
 import Image from "next/image";
 import usePopularMovieSlider from "@/hooks/data/usePopularMovieSlider";
 import useUpcomingMovieSlider from "@/hooks/data/useUpcomigMovieSlider";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { useEffect } from "react";
 
 const HomePage = () => {
     // const { data } = usePopularMoviesListQuery();
@@ -24,7 +27,8 @@ const HomePage = () => {
         <>
             <Box className="mb-5">
                 <Typography className="mb-2">Upcoming Movies</Typography>
-                <MainSwiper slides={upcomingMovies} />
+                <MainSwiper backgroundHandler={true} slides={upcomingMovies} />
+
                 {/* <img src={data} /> */}
                 {/* <Image
                     src={

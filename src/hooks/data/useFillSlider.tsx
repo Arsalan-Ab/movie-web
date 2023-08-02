@@ -4,16 +4,18 @@ import { SwiperSlide } from "swiper/react";
 
 interface FillSliderProps {
     large: boolean;
-    slides: MovieResult[];
+    background?: boolean;
+    movies: MovieResult[];
 }
 
-const useFillSlider = ({ slides, large }: FillSliderProps) => {
-    return slides.map((slide, index) => (
+const useFillSlider = ({ movies, large, background }: FillSliderProps) => {
+    return movies.map((movie, index) => (
         <SwiperSlide key={index}>
             <MovieCard
                 large={large}
-                title={slide.title}
-                src={large ? slide.backdrop_path : slide.poster_path}
+                background={background}
+                title={movie.title}
+                src={large ? movie.backdrop_path : movie.poster_path}
             ></MovieCard>
         </SwiperSlide>
     ));

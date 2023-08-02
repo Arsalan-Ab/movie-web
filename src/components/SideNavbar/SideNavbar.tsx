@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { ReactElement, ReactNode } from "react";
 import styles from "./SideNavbar.module.scss";
 
+
 export interface SideNavbarProps extends BoxProps {
     items: ReactNode[];
 }

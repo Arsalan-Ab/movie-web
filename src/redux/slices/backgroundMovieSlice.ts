@@ -1,23 +1,34 @@
 import { ReactNode } from "react";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import Swiper from "swiper";
+import { SwiperProps } from "swiper/react";
 
 interface MoviesState {
-    movies: ReactNode[];
+    movies: MovieResult[];
     activeBackground: number;
+    SwiperController: any;
 }
 
 const MoviesSlice = createSlice({
     name: "movie",
-    initialState: { movies: [], activeBackground: 0 } as MoviesState,
+    initialState: {
+        movies: [],
+        activeBackground: 0,
+        SwiperController: {},
+    } as MoviesState,
     reducers: {
-        addMovie(state, action: PayloadAction<ReactNode[]>) {
+        addMoviesSlides(state, action: PayloadAction<MovieResult[]>) {
             state.movies = action.payload;
         },
-        getActivebackground(state, action: PayloadAction<number>) {
+        setActivebackground(state, action: PayloadAction<number>) {
             state.activeBackground = action.payload;
+        },
+        addSwiperController(state, action: PayloadAction<any>) {
+            state.SwiperController = action.payload;
         },
     },
 });
 
-export const { addMovie, getActivebackground } = MoviesSlice.actions;
+export const { addMoviesSlides, setActivebackground, addSwiperController } =
+    MoviesSlice.actions;
 export default MoviesSlice.reducer;
